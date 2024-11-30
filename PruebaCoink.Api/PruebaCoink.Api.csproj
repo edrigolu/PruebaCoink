@@ -11,4 +11,10 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="7.1.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\PruebaCoink.Application.UseCases\PruebaCoink.Application.UseCases.csproj" />
+    <ProjectReference Include="..\PruebaCoink.Persistence\PruebaCoink.Persistence.csproj" />
+    <ProjectReference Include="..\PruebaCoink.Utilities\PruebaCoink.Utilities.csproj" />
+  </ItemGroup>
+
 </Project>

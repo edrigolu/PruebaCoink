@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\PruebaCoink.Domain\PruebaCoink.Domain.csproj" />
+    <ProjectReference Include="..\PruebaCoinl.Application.Dtos\PruebaCoinl.Application.Dtos.csproj" />
+  </ItemGroup>
+
 </Project>
