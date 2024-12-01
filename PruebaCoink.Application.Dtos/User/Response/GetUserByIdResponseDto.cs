@@ -1,4 +1,4 @@
-﻿namespace PruebaCoinl.Application.Dtos.User.Response
+﻿namespace PruebaCoink.Application.Dtos.User.Response
 {
     public class GetUserByIdResponseDto
     {

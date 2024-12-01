@@ -26,7 +26,7 @@ namespace PruebaCoink.Application.UseCases.UseCases.User.Commands.ChangeUserStat
             {
                 var patient = _mapper.Map<Entity.User>(request);
                 var parameters = patient.GetPropertiesWithValues();
-                response.Data = await _unitOfWork.User.ExecAsync(SP.SPChangeUserStatus, parameters);
+                response.Data = await _unitOfWork.User.ExecAsync(SP.SP_ChangeUserStatus, parameters);
                 if (response.Data)
                 {
                     response.IsSuccess = true;

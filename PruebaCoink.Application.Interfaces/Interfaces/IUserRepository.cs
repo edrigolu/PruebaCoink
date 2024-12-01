@@ -1,5 +1,5 @@
-﻿using PruebaCoink.Domain.Entities;
-using PruebaCoinl.Application.Dtos.User.Response;
+﻿using PruebaCoink.Application.Dtos.User.Response;
+using PruebaCoink.Domain.Entities;
 
 namespace PruebaCoink.Application.Interfaces.Interfaces
 {

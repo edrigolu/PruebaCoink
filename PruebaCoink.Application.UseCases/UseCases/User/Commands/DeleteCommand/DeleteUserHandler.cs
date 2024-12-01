@@ -19,7 +19,7 @@ namespace PruebaCoink.Application.UseCases.UseCases.User.Commands.DeleteCommand
             var response = new BaseResponse<bool>();
             try
             {
-                response.Data = await _unitOfWork.User.ExecAsync(SP.SPDeleteUser, request);
+                response.Data = await _unitOfWork.User.ExecAsync(SP.SP_DeleteUser, request);
                 if (response.Data)
                 {
                     response.IsSuccess = true;

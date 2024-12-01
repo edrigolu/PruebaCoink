@@ -1,3 +1,5 @@
+using PruebaCoink.Application.UseCases.Extensions;
+using PruebaCoink.Persistence.Extensions;
 
 namespace PruebaCoink.Api
 {
@@ -11,11 +13,11 @@ namespace PruebaCoink.Api
 
             builder.Services.AddControllers();
             // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-
             //builder.Services.AddOpenApi();
 
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            builder.Services.AddInjectionApplication().AddInjectionPersistence();
 
             var app = builder.Build();
 
@@ -29,8 +31,9 @@ namespace PruebaCoink.Api
 
             app.UseHttpsRedirection();
 
-            app.UseAuthorization();
+            app.UseStaticFiles();
 
+            app.UseAuthorization();
 
             app.MapControllers();
 

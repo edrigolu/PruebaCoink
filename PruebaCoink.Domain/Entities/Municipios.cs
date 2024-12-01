@@ -3,6 +3,7 @@
     public class Municipios
     {
         public int IdMunicipio { get; set; }
+        public string? Codigo { get; set; }
         public string? Municipio { get; set; }
         public int IdDepartamento { get; set; }
     }

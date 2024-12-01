@@ -14,29 +14,10 @@ namespace PruebaCoink.Persistence.Repositories
             _context = context;
         }
 
-        public async Task<bool> ExecAsync(string storeProcedureName, object parameters)
-        {
-            using var connection = _context.CreateConnection;
-            DynamicParameters dynamicParameters = new DynamicParameters(parameters);
-            int recordAffected = await connection.ExecuteAsync(storeProcedureName,
-                                                               param: dynamicParameters,
-                                                               commandType: CommandType.StoredProcedure);
-            return recordAffected > 0;
-        }
-
         public async Task<IEnumerable<T>> GetAllAsync(string storeProcedureName)
         {
             using var connection = _context.CreateConnection;
             return await connection.QueryAsync<T>(storeProcedureName,
-                                                  commandType: CommandType.StoredProcedure);
-        }
-
-        public async Task<IEnumerable<T>> GetAllWithPaginationAsync(string storeProcedureName, object parameter)
-        {
-            using var connection = _context.CreateConnection;
-            var dynamicParameters = new DynamicParameters(parameter);
-            return await connection.QueryAsync<T>(storeProcedureName,
-                                                  param: dynamicParameters,
                                                   commandType: CommandType.StoredProcedure);
         }
 
@@ -48,6 +29,25 @@ namespace PruebaCoink.Persistence.Repositories
                                                                  param: dynamicParameters,
                                                                  commandType: CommandType.StoredProcedure);
             return record!;
+        }
+
+        public async Task<bool> ExecAsync(string storeProcedureName, object parameters)
+        {
+            using var connection = _context.CreateConnection;
+            DynamicParameters dynamicParameters = new DynamicParameters(parameters);
+            int recordAffected = await connection.ExecuteAsync(storeProcedureName,
+                                                               param: dynamicParameters,
+                                                               commandType: CommandType.StoredProcedure);
+            return recordAffected > 0;
+        }
+
+        public async Task<IEnumerable<T>> GetAllWithPaginationAsync(string storeProcedureName, object parameter)
+        {
+            using var connection = _context.CreateConnection;
+            var dynamicParameters = new DynamicParameters(parameter);
+            return await connection.QueryAsync<T>(storeProcedureName,
+                                                  param: dynamicParameters,
+                                                  commandType: CommandType.StoredProcedure);
         }
 
         public async Task<int> GetCountAsync(string tableName)

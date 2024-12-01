@@ -14,14 +14,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\PruebaCoink.Application.Dtos\PruebaCoink.Application.Dtos.csproj" />
     <ProjectReference Include="..\PruebaCoink.Application.Interfaces\PruebaCoink.Application.Interfaces.csproj" />
     <ProjectReference Include="..\PruebaCoink.Domain\PruebaCoink.Domain.csproj" />
     <ProjectReference Include="..\PruebaCoink.Utilities\PruebaCoink.Utilities.csproj" />
-    <ProjectReference Include="..\PruebaCoinl.Application.Dtos\PruebaCoinl.Application.Dtos.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="UseCases\User\Queries\" />
   </ItemGroup>
 
 </Project>

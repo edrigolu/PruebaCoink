@@ -1,5 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
-using Npgsql;
+﻿using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.Configuration;
 using System.Data;
 
 namespace PruebaCoink.Persistence.Context
@@ -12,9 +12,9 @@ namespace PruebaCoink.Persistence.Context
         public ApplicationDbContext(IConfiguration configuration)
         {
             _configuration = configuration;
-            _connectionstring = _configuration.GetConnectionString("PostgConnection")!;
+            _connectionstring = _configuration.GetConnectionString("SqlConnection")!;
         }
 
-        public IDbConnection CreateConnection => new NpgsqlConnection(_connectionstring);
+        public IDbConnection CreateConnection => new SqlConnection(_connectionstring);
     }
 }

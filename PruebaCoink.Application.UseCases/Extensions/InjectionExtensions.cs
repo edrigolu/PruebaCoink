@@ -4,7 +4,6 @@ using Microsoft.Extensions.DependencyInjection;
 using PruebaCoink.Application.UseCases.Common.Behaviors;
 using System.Reflection;
 
-
 namespace PruebaCoink.Application.UseCases.Extensions
 {
     public static class InjectionExtensions

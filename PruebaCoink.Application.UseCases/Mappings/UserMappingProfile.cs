@@ -1,6 +1,10 @@
 ﻿using AutoMapper;
+using PruebaCoink.Application.Dtos.User.Response;
+using PruebaCoink.Application.UseCases.UseCases.User.Commands.ChangeUserStatus;
+using PruebaCoink.Application.UseCases.UseCases.User.Commands.CreateCommand;
+using PruebaCoink.Application.UseCases.UseCases.User.Commands.DeleteCommand;
+using PruebaCoink.Application.UseCases.UseCases.User.Commands.UpdateCommand;
 using PruebaCoink.Domain.Entities;
-using PruebaCoinl.Application.Dtos.User.Response;
 
 namespace PruebaCoink.Application.UseCases.Mappings
 {
@@ -9,9 +13,13 @@ namespace PruebaCoink.Application.UseCases.Mappings
         protected UserMappingProfile()
         {
             CreateMap<User, GetAllUsersResponseDto>()
-                .ForMember(x => x.EstaActivo, x => x.MapFrom(y => y.Activo == 1 ? "Activo" : "Inactivo"))
+                .ForMember(x => x.EsActivo, x => x.MapFrom(y => y.Activo == 1 ? "Activo" : "Inactivo"))
                 .ReverseMap();
             CreateMap<User, GetUserByIdResponseDto>().ReverseMap();
+            CreateMap<CreateUserCommand, User>();
+            CreateMap<UpdateUserCommand, User>();
+            CreateMap<DeleteUserCommand, User>();
+            CreateMap<ChangeUserStatusCommand, User>();
         }
     }
 }
