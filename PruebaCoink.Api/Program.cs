@@ -19,6 +19,8 @@ namespace PruebaCoink.Api
             builder.Services.AddSwaggerGen();
             builder.Services.AddInjectionApplication().AddInjectionPersistence();
 
+            builder.Services.AddHttpContextAccessor();
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
