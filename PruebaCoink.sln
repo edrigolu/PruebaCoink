@@ -29,13 +29,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PruebaCoink.Application.Dto
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PruebaCoink.Persistence", "PruebaCoink.Persistence\PruebaCoink.Persistence.csproj", "{1EBD9B15-3E89-4DB7-BC03-059D339764A8}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts Base datos", "Scripts Base datos", "{F4FC1F73-03FA-402A-8D62-FC44D3246D2C}"
-	ProjectSection(SolutionItems) = preProject
-		..\..\..\Documents\CrearBaseDatos.sql = ..\..\..\Documents\CrearBaseDatos.sql
-		..\..\..\Documents\Crear_Insertar.sql = ..\..\..\Documents\Crear_Insertar.sql
-		..\..\..\Documents\StoreProcedures.sql = ..\..\..\Documents\StoreProcedures.sql
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +80,5 @@ Global
 		{9FB5E773-66FF-4349-A25F-9D9F82AD21E4} = {5031354C-9FDA-451A-9281-B87F44204A26}
 		{8AF0C81B-C1A7-4183-8058-CB7FD00D4BCF} = {8C9E81FD-1398-4671-A43F-6404FA56CE7E}
 		{1EBD9B15-3E89-4DB7-BC03-059D339764A8} = {741C6AD9-D6A9-48A8-8A4C-08199BAFCAD6}
-		{F4FC1F73-03FA-402A-8D62-FC44D3246D2C} = {56BCB44B-55FA-4E89-8C53-BA289E807AE5}
 	EndGlobalSection
 EndGlobal
