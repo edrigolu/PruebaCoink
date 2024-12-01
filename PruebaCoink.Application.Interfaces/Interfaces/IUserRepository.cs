@@ -1,9 +1,9 @@
-﻿using PruebaCoink.Application.Dtos.User.Response;
+﻿using PruebaCoink.Application.Dtos.Usuarios.Response;
 using PruebaCoink.Domain.Entities;
 
 namespace PruebaCoink.Application.Interfaces.Interfaces
 {
-    public interface IUserRepository : IGenericRepository<User>
+    public interface IUserRepository : IGenericRepository<Usuarios>
     {
         Task<IEnumerable<GetAllUsersResponseDto>> GetAllUsers(string storeProcedureName, object parameter);
     }

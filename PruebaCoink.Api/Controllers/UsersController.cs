@@ -1,11 +1,10 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using PruebaCoink.Application.UseCases.UseCases.User.Commands.ChangeUserStatus;
-using PruebaCoink.Application.UseCases.UseCases.User.Commands.CreateCommand;
-using PruebaCoink.Application.UseCases.UseCases.User.Commands.DeleteCommand;
-using PruebaCoink.Application.UseCases.UseCases.User.Commands.UpdateCommand;
-using PruebaCoink.Application.UseCases.UseCases.User.Queries.GetAllQuery;
-using PruebaCoink.Application.UseCases.UseCases.User.Queries.GetByIdQuery;
+using PruebaCoink.Application.UseCases.UseCases.Usuarios.Commands.CreateCommand;
+using PruebaCoink.Application.UseCases.UseCases.Usuarios.Commands.DeleteCommand;
+using PruebaCoink.Application.UseCases.UseCases.Usuarios.Commands.UpdateCommand;
+using PruebaCoink.Application.UseCases.UseCases.Usuarios.Queries.GetAllQuery;
+using PruebaCoink.Application.UseCases.UseCases.Usuarios.Queries.GetByIdQuery;
 
 namespace PruebaCoink.Api.Controllers
 {
@@ -23,44 +22,36 @@ namespace PruebaCoink.Api.Controllers
         [HttpGet("UsersList")]
         public async Task<IActionResult> UsersList([FromQuery] GetAllUsersQuery query)
         {
-            var response = await _mediator.Send(query);
+            Application.UseCases.Common.Bases.BasePaginationResponse<IEnumerable<Application.Dtos.Usuarios.Response.GetAllUsersResponseDto>> response = await _mediator.Send(query);
             return Ok(response);
         }
 
         [HttpGet("{IdUsuario:int}")]
-        public async Task<IActionResult> PatientById(int IdUsuario)
+        public async Task<IActionResult> UserById(int IdUsuario)
         {
-            var response = await _mediator.Send(new GetUsersByIdQuery() { IdUsuario = IdUsuario });
+            Application.UseCases.Common.Bases.BaseResponse<Application.Dtos.Usuarios.Response.GetUserByIdResponseDto> response = await _mediator.Send(new GetUsersByIdQuery() { IdUsuario = IdUsuario });
             return Ok(response);
         }
 
         [HttpPost("Register")]
-        public async Task<IActionResult> RegisterPatient([FromBody] CreateUserCommand command)
+        public async Task<IActionResult> RegisterUser([FromBody]  CreateUserCommand command)
         {
-            var response = await _mediator.Send(command);
+            Application.UseCases.Common.Bases.BaseResponse<bool> response = await _mediator.Send(command);
             return Ok(response);
-        }
+        }        
 
         [HttpPut("Edit")]
         public async Task<IActionResult> EditPatient([FromBody] UpdateUserCommand command)
         {
-            var response = await _mediator.Send(command);
+            Application.UseCases.Common.Bases.BaseResponse<bool> response = await _mediator.Send(command);
             return Ok(response);
         }
 
         [HttpDelete("Delete/{IdUsuario:int}")]
         public async Task<IActionResult> DeletePatient(int IdUsuario)
         {
-            var response = await _mediator.Send(new DeleteUserCommand() { IdUsuario = IdUsuario });
+            Application.UseCases.Common.Bases.BaseResponse<bool> response = await _mediator.Send(new DeleteUserCommand() { IdUsuario = IdUsuario });
             return Ok(response);
         }
-
-        [HttpPut("ChangeState")]
-        public async Task<IActionResult> ChangeState([FromBody] ChangeUserStatusCommand change)
-        {
-            var response = await _mediator.Send(change);
-            return Ok(response);
-        }
-
     }
 }

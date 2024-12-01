@@ -8,21 +8,23 @@ namespace PruebaCoink.Persistence.Repositories
     {
         private readonly ApplicationDbContext _context;
 
-        public IUserRepository User { get; }
+        public IUserRepository Usuario { get; }
+        public IPaisesRepository Paises { get; }
         public IMunicipioRepository Municipio { get; }
         public IDepartamentoRepository Departamento { get; }
 
         public UnitOfWork(ApplicationDbContext context)
         {
             _context = context;
-            User = new UserRepository(_context);
+            Usuario = new UserRepository(_context);
+            Paises = new PaisesRepository(_context);
             Municipio = new MunicipalityRepository(_context);
             Departamento = new DepartamentoRepository(_context);
         }
 
         public TransactionScope BeginTransaction()
         {
-            TransactionScope transaction = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled);
+            var transaction = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled);
             return transaction;
         }
 
